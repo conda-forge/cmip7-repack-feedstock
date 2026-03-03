@@ -1,6 +1,6 @@
-{% set python_min = "3.11" %}
+{% set python_min = "3.10" %}
 {% set name = "cmip7-repack" %}
-{% set version = "0.6" %}
+{% set version = "1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/c/cmip7_repack/cmip7_repack-{{ version }}.tar.gz
-  sha256: 6557cecc75caa0e6a9a6bb5c3b0f1f4d9da2c59fa7783ce67ae71e2ab57f6513
+  sha256: e27392e619f3e61b3e624d6f3fb245e904989ae003e05300cd3192ae0daf0cf3
 
 build:
   noarch: python
@@ -24,8 +24,9 @@ requirements:
   run:
     - python >={{ python_min }}
     - pip
+    - hdf5
     - packaging
-    - pyfive >=1.0
+    - pyfive >=1.1.1
     - __linux   # [linux]
     - __osx     # [osx]
 
